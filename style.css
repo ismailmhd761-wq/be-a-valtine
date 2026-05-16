@@ -186,3 +186,30 @@ body {
         opacity: 0;
     }
 }
+
+/* Love Letter Styling */
+.love-letter {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.love-letter p {
+    font-size: 1.1rem;
+    color: #22223b;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.love-letter .letter-closing {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #f72585;
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
