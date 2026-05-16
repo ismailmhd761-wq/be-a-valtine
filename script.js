@@ -16,6 +16,20 @@ openBtn.addEventListener('click', () => {
     createHearts();
 });
 
+// Envelope Interaction
+const envelopeWrapper = document.getElementById('envelope-wrapper');
+if (envelopeWrapper) {
+    envelopeWrapper.addEventListener('click', () => {
+        envelopeWrapper.classList.toggle('open');
+        const textElement = envelopeWrapper.querySelector('.envelope-text');
+        if (envelopeWrapper.classList.contains('open')) {
+            textElement.textContent = "Close letter";
+        } else {
+            textElement.textContent = "Click the envelope 💌";
+        }
+    });
+}
+
 function fireConfetti() {
     var duration = 3 * 1000;
     var animationEnd = Date.now() + duration;
