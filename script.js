@@ -12,7 +12,8 @@ openBtn.addEventListener('click', () => {
     // Fire confetti
     fireConfetti();
     
-    // Play a tiny subtle sound effect if you want, or just rely on visuals
+    // Create floating hearts
+    createHearts();
 });
 
 function fireConfetti() {
@@ -37,4 +38,23 @@ function fireConfetti() {
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
+}
+
+function createHearts() {
+    // Create 20 floating hearts
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, i * 200); // Stagger the hearts spawning
+    }
 }
