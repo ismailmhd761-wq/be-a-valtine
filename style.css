@@ -5,119 +5,162 @@
 }
 
 body {
-    font-family: 'Fredoka', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
+    padding: 20px;
 }
 
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(255, 105, 135, 0.37);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 40px;
     text-align: center;
-    max-width: 500px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    max-width: 800px;
+    width: 100%;
     z-index: 10;
     transition: transform 0.3s ease;
 }
 
-.hero-image {
-    width: 200px;
-    height: auto;
-    animation: float 3s ease-in-out infinite;
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: #4a4e69;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-h1 {
-    font-family: 'Pacifico', cursive;
-    color: #ff4b72;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-    margin-bottom: 10px;
-}
-
-.buttons {
+/* Gift Box styling */
+.gift-container {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 80px;
+    min-height: 200px;
+    transition: opacity 0.5s ease;
 }
 
-.btn {
-    font-family: 'Fredoka', sans-serif;
+.open-btn {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    padding: 12px 30px;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #f72585, #7209b7);
+    color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(114, 9, 183, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-.btn-yes {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    color: white;
-    z-index: 2;
+.open-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(114, 9, 183, 0.5);
 }
 
-.btn-yes:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(255, 65, 108, 0.4);
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.btn-no {
-    background: white;
-    color: #ff416c;
-    position: absolute;
-    right: 50px; /* Default position */
+/* Hidden Content Area */
+.content-hidden {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
-/* Heart particles for success */
-.heart {
-    position: fixed;
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #22223b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.from-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #f72585;
+    margin-top: 30px;
+}
+
+/* Photo Gallery / Polaroids */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.polaroid {
+    background: #fff;
+    padding: 15px 15px 30px 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 20;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.polaroid img {
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+
+.polaroid .caption {
+    font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
-    color: #ff416c;
-    pointer-events: none;
-    animation: floatUp 4s ease-in forwards;
-    z-index: 100;
+    color: #333;
+    margin-top: 10px;
 }
 
-@keyframes floatUp {
-    0% {
-        transform: translateY(100vh) scale(0);
-        opacity: 1;
+.tilt-left {
+    transform: rotate(-5deg);
+}
+
+.tilt-right {
+    transform: rotate(5deg);
+}
+
+@media (max-width: 600px) {
+    .photo-gallery {
+        flex-direction: column;
     }
-    100% {
-        transform: translateY(-20vh) scale(1.5);
-        opacity: 0;
+    .polaroid img {
+        max-width: 200px;
     }
 }

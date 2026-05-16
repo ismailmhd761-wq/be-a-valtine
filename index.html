@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Happy Birthday Aminaa! 🎉</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
+    
     <div class="glass-card" id="main-card">
-        <img src="cat.png" alt="Cute Cat" class="hero-image" id="cat-img">
-        <h1 id="question">Will you be my Valentine? 🥺</h1>
-        <div class="buttons">
-            <button class="btn btn-yes" id="yes-btn">Yes</button>
-            <button class="btn btn-no" id="no-btn">No</button>
+        <h1 class="title">Happy Birthday, Aminaa! 🎂</h1>
+        
+        <div class="gift-container" id="gift-box">
+            <div class="gift-lid"></div>
+            <div class="gift-box-body"></div>
+            <button class="open-btn" id="open-btn">Click to Open Gift 🎁</button>
+        </div>
+
+        <div class="content-hidden" id="birthday-content">
+            <p class="message">Wishing you the most magical and beautiful birthday! May all your dreams come true. ✨💖</p>
+            
+            <div class="photo-gallery">
+                <div class="polaroid tilt-left">
+                    <img src="images/photo1.jpg" alt="Aminaa 1">
+                    <div class="caption">Beautiful! ✨</div>
+                </div>
+                <div class="polaroid tilt-right">
+                    <img src="images/photo2.jpg" alt="Aminaa 2">
+                    <div class="caption">Stunning! 🌸</div>
+                </div>
+            </div>
+            
+            <p class="from-message">With love,</p>
         </div>
     </div>
     
